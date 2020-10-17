@@ -1,6 +1,7 @@
 import click
-import helper
-from initial import initial
+import importlib
+import malas_path
+from malas_init import initial
 
 @click.group()
 def main():
@@ -15,17 +16,18 @@ main.add_command(initial, name="init")
 if __name__ == "__main__":
     try:
     # Check plugins
-        from malas_plugins import (
-            install,
-            setup,
-            publish,
-            do_something
-        )
-        
-        main.add_command(install, name="install")
-        main.add_command(setup, name="setup")
-        
+        import command_aggregate
+        from command_func import command_func_list
+        for module in command_func_list:
+            main.add_command(module, name=module.__dict__.get('name'))
+
         main()
-    
-    except ImportError:
-        click.echo("Do `malas init` for initialize")
+        
+    except ImportError as e:
+
+        click.echo("-------ERROR------")
+        click.echo(e)
+        click.echo("If this is your first attempt, please do 'malas init'")
+        click.echo("-------ERROR------")
+
+        main()
