@@ -1,9 +1,5 @@
-import os
 import click
-
 from PyInquirer import prompt
-from malas_path import config_path
-from cookiecutter.main import cookiecutter
 
 questions = [
     # Learn more in https://github.com/CITGuru/PyInquirer#question-types
