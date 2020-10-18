@@ -11,8 +11,15 @@ questions = [
         'type': 'confirm',
         'name': 'confirmation',
         'message': 'Configuration already exist, reset to factory?',
-        'default': False
-    }
+        'default': True
+    },
+    {
+        'type': 'confirm',
+        'name': 'keep_config',
+        'message': 'Keep config?',
+        'default': True
+    },
+
 ]
 
 @click.command()
@@ -24,6 +31,7 @@ def initial():
     if os.path.isdir(config_path):
         answer = prompt(questions)
         replace = answer.get('confirmation')
+        keep_config = answer.get('keep_config')
 
     if replace:
         if os.path.isdir(f'{config_path}/config'):
@@ -35,6 +43,10 @@ def initial():
             os.makedirs(f'{config_path}/{folder}', exist_ok=True)
 
         copy_tree(src=f'{malas_path}/malas_config/', dst=config_path)
+
+        if keep_config:
+            copy_tree(src=f'{config_path}/config_backup', dst=f'{config_path}/config')
+            remove_tree(f'{config_path}/config_backup')
 
         click.echo(f"Creating configuration folder in {config_path}")
     else:
