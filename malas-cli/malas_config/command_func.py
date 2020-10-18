@@ -21,11 +21,11 @@ def do_something():
     """Do something awesome"""
     pass
 
-command_func_list = [
-    setup,
-    install,
-    publish,
-    do_something,
+command_func_list = {
+    'setup': setup,
+    'install': install,
+    'publish': publish,
+    'do': do_something,
     # Add more here after create function like above
-]   
+}
         

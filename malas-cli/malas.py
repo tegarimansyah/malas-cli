@@ -18,8 +18,8 @@ if __name__ == "__main__":
     # Check plugins
         import command_aggregate
         from command_func import command_func_list
-        for module in command_func_list:
-            main.add_command(module, name=module.__dict__.get('name'))
+        for module_name, module_func in command_func_list.items():
+            main.add_command(module_func, name=module_name)
 
         main()
         
