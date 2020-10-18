@@ -1,0 +1,5 @@
+{
+    "kibana":5601,
+    "airflow":8080,
+    "flower":5555
+}

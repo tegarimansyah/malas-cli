@@ -195,16 +195,17 @@ $ malas setup kubernetes # Create deployment or config
 $ malas build docker # Connect to docker (or remote server), build, tagging and push to registry
 ```
 
-## Malas Deploy
+## Malas Publish
 
 ```bash
-$ malas deploy docker-compose # Run green-blue docker compose
-$ malas deploy django # Pull from github, migrate, collectstatic then restart systemd
+$ malas publish docker-compose # Run green-blue docker compose
+$ malas publish django # Pull from github, migrate, collectstatic then restart systemd
 ```
 
-If you are really lazy to remind everything (IP, domain, etc), just centralize it. 
 
 ## Malas Login
+
+If you are really lazy to remind everything (IP, domain, etc), just centralize it. 
 
 ```bash
 $ malas register

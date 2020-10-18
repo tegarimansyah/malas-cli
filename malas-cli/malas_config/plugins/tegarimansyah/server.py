@@ -68,3 +68,20 @@ def get_server():
         else:
             click.echo("Server is empty")
         
+def get_port():
+    port_file = f'{config_path}/config/port.json'
+
+    with open(port_file, 'r') as jsonfile:
+        port_data = json.load(jsonfile)
+        if port_data:
+            questions = [{
+                'type': 'list',
+                'name': 'port',
+                'message': 'Choose Port',
+                'choices': port_data.keys(),
+                'filter': lambda port_name: port_data.get(port_name)
+            }]
+            answer = prompt(questions)
+            return answer.get('port')
+        else:
+            click.echo("Port is empty")
