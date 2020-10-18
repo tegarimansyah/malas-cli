@@ -11,7 +11,7 @@ questions = [
         'type': 'confirm',
         'name': 'confirmation',
         'message': 'Configuration already exist, reset to factory?',
-        'default': False
+        'default': True
     },
     {
         'type': 'confirm',
