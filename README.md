@@ -86,7 +86,7 @@ $ tree ~/.malas
 └── sub_command.py
 ```
 
-We can pu automation script in plugins folder, namespacing with your own namespace. In the future, I hope we able to pull from github repository and namespacing based on username.
+We can put automation script in plugins folder, namespacing with your own namespace. In the future, I hope we will able to pull from github repository and namespacing based on username.
 
 Let's see our `plugins/tegarimansyah/hello_world.py`
 
