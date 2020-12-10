@@ -28,6 +28,8 @@ def initial():
     Initialize folder and other
     """
     replace = True
+    keep_config = False
+
     if os.path.isdir(config_path):
         answer = prompt(questions)
         replace = answer.get('confirmation')
